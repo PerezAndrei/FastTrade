@@ -1,0 +1,64 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<FastTradeWEB.Models.AdVM>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Мои объявления";
+}
+
+<div id="content">
+    <div class="row">
+        @*<h3 class="text-center">@ViewBag.Title</h3>*@
+    </div>
+    
+    <div class="row masonry" data-columns>
+        @foreach (var ad in Model)
+        {
+            <div class="salvatore" id="item">
+                <div class="thumbnail">
+                    @if (ad.Images.Count > 0)
+                    {
+                        foreach (var image in ad.Images)
+                        {
+                            <div id="imageBox">
+                                <img class="clickImage" src=@image.PathToOriginal alt="" />
+                            </div>
+                        
+                            break;
+                        }
+                    }
+                    @if (ad.Images.Count == 0)
+                    {
+                        <img src="http://placehold.it/300x240" alt="" />
+                    }
+                    <div class="caption">
+                        <div id="headerPers">
+                            <div>
+                                <p class="text-info">@ad.Header</p>
+                            </div>
+                        </div>
+                        <h4>@ad.Price.ToString("c")</h4>
+                        @Html.ActionLink("Подробнее", "GetAdbyAdId", "User", new { id = ad.AdId }, new { target = "_blank", @class = "btn btn-block btn-info btn-sm" })
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <br />
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("PersonalAds", "Manage", new {page}), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "manageContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    }))
+
+</div>
+<script src="~/Scripts/salvattore.min.js"></script>
+<script type="text/javascript" ax:repeat="0" src="~/Scripts/popup_img.js"></script>

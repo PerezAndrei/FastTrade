@@ -1,0 +1,17 @@
+﻿@model IEnumerable<FastTradeWEB.Models.TagVM>
+
+<div class="well pre-scrollable text-center" id="boxTags">
+    <button id="refreshTags" type="button" class="btn btn-sm btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+    </button>
+    <button class="btn btn-info btn-sm active" id="filter_tag" data-tag-id="-1" data-tag-name="(Все тэги)">
+        Все тэги
+    </button>
+    @foreach (var tag in Model)
+    {
+        <button class="btn btn-info btn-sm" id="@tag.TagName" data-tag-id="@tag.TagId" data-tag-name="(@tag.TagName)">
+            <span class="badge badge-default">@tag.CountAd</span> @tag.TagName <span class="badge badge-error">@tag.CountReq</span>
+        </button>
+    }
+</div>
+<script src="~/Scripts/myScript.js"></script>

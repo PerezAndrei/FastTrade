@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.125, 10.625" name="DB_Fasttrade_Class">
+  <DataContextMoniker Name="/DB_Fasttrade_ClassDataContext" />
+  <nestedChildShapes>
+    <classShape Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" absoluteBounds="6.25, 2.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Ad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ad03cbd-ab18-4aaf-9c26-b2b7844984c0" absoluteBounds="6.265, 3.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b027cc3c-31bd-4a2e-859a-e880572b9450" absoluteBounds="3.5, 3, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d87aa58a-6069-41c6-b77a-7c77ed23c049" absoluteBounds="3.515, 3.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="420e8b9e-b495-4e9b-b1dd-32a70d5f4d75" absoluteBounds="3.5, 9.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f0830b7-a984-49cd-af46-0108e21c3957" absoluteBounds="3.515, 9.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="734a91b1-2a8a-425f-b23e-a94883af9ef6" absoluteBounds="9, 6.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7622d6a8-6ce1-4332-872b-05c71d324fd3" absoluteBounds="9.015, 6.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7183db33-fe5c-4219-bf22-64d9881238e4" absoluteBounds="9, 4.25, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/InfoReviewAd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cb2a46d-81e6-425e-a54c-31e98389c83c" absoluteBounds="9.015, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0de83cf-3774-4a64-a67c-bd99eda1dbc5" absoluteBounds="11.875, 2.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/InfoReviewTag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1144344-d59e-4d3f-b856-8c6ffa7ce2a1" absoluteBounds="11.89, 3.3350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5833a13f-e38f-45d5-823f-2d91d14198f2" absoluteBounds="3.5, 6.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Kind" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3940351-1097-4865-9e69-dbd3600e051b" absoluteBounds="3.515, 6.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2b0489d-80be-403e-ada4-ac753fc757e6" absoluteBounds="3.5, 7.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a5705a2-cacc-4f5d-84ea-2622856ed354" absoluteBounds="3.515, 8.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c74dcc4-1b66-4697-a2e3-cf65ec54e91e" absoluteBounds="3.625, 1.375, 2, 1.193992513020834">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6aac27a6-383d-4027-a7a5-4663c3acff76" absoluteBounds="3.64, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="87ae576e-b95f-4a25-aa0c-0d5b1fe5959e" absoluteBounds="11.875, 0.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Synonym" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a2a6515-4dfb-4f75-8a8f-f1288f19a464" absoluteBounds="11.89, 1.3350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="932d7914-0dfb-4cea-8350-721e96d0377a" absoluteBounds="6.25, 0.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/TagAd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d057f697-5317-46e3-98d1-975484b02be3" absoluteBounds="6.2650000000000006, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57659878-1f3a-4991-bf29-0b94e45d0e57" absoluteBounds="9.125, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DB_Fasttrade_ClassDataContext/Tag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5089f66-3918-497c-846b-d26b135c4029" absoluteBounds="9.14, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.27005126953125); (6.25 : 4.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/User/User_Ad" />
+      <nodes>
+        <classShapeMoniker Id="b027cc3c-31bd-4a2e-859a-e880572b9450" />
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.72199625651042); (7.02838877132723 : 9.72199625651042); (7.02838877132723 : 5.60740397135417)]" fixedFrom="Algorithm" fixedTo="Caller">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Category/Category_Ad" />
+      <nodes>
+        <classShapeMoniker Id="420e8b9e-b495-4e9b-b1dd-32a70d5f4d75" />
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 5.60740397135417); (7.25 : 7.26044840494792); (9 : 7.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Ad/Ad_Image" />
+      <nodes>
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+        <classShapeMoniker Id="734a91b1-2a8a-425f-b23e-a94883af9ef6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.92870198567708); (9 : 4.92870198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Ad/Ad_InfoReviewAd" />
+      <nodes>
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+        <classShapeMoniker Id="7183db33-fe5c-4219-bf22-64d9881238e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.69272420247396); (6.50104070138975 : 6.69272420247396); (6.50104070138975 : 5.60740397135417)]" manuallyRouted="true" fixedFrom="Algorithm" fixedTo="Caller">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Kind/Kind_Ad" />
+      <nodes>
+        <classShapeMoniker Id="5833a13f-e38f-45d5-823f-2d91d14198f2" />
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.22199625651042); (6.76764034383006 : 8.22199625651042); (6.76764034383006 : 5.60740397135417)]" manuallyRouted="true" fixedFrom="Algorithm" fixedTo="Caller">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Location/Location_Ad" />
+      <nodes>
+        <classShapeMoniker Id="c2b0489d-80be-403e-ada4-ac753fc757e6" />
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5625 : 2.56899251302083); (4.5625 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="4c74dcc4-1b66-4697-a2e3-cf65ec54e91e" />
+        <classShapeMoniker Id="b027cc3c-31bd-4a2e-859a-e880572b9450" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 2.875); (7.25 : 2.06899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Ad/Ad_TagAd" />
+      <nodes>
+        <classShapeMoniker Id="79582a13-9c8f-4ed4-bda9-bfc1c1a2bdfd" />
+        <classShapeMoniker Id="932d7914-0dfb-4cea-8350-721e96d0377a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5806281719598 : 2.32859537760417); (10.5806281719598 : 3.56814697265625); (11.875 : 3.56814697265625)]" fixedFrom="Caller" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Tag/Tag_InfoReviewTag" />
+      <nodes>
+        <classShapeMoniker Id="57659878-1f3a-4991-bf29-0b94e45d0e57" />
+        <classShapeMoniker Id="a0de83cf-3774-4a64-a67c-bd99eda1dbc5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.125 : 1.56814697265625); (11.875 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Tag/Tag_Synonym" />
+      <nodes>
+        <classShapeMoniker Id="57659878-1f3a-4991-bf29-0b94e45d0e57" />
+        <classShapeMoniker Id="87ae576e-b95f-4a25-aa0c-0d5b1fe5959e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.125 : 1.47199625651042); (8.25 : 1.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_Fasttrade_ClassDataContext/Tag/Tag_TagAd" />
+      <nodes>
+        <classShapeMoniker Id="57659878-1f3a-4991-bf29-0b94e45d0e57" />
+        <classShapeMoniker Id="932d7914-0dfb-4cea-8350-721e96d0377a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

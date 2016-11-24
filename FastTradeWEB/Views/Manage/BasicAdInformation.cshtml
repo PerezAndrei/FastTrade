@@ -1,0 +1,96 @@
+﻿@model FastTradeWEB.Models.AdVM
+
+@{
+    Layout = null;
+    ViewBag.Title = "Персональные данные";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "basicAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Общая информация</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.Kind.Name):
+                        <div>
+                            @Html.DisplayFor(model => model.Kind.Name)
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.Category.Name):
+                        <div>
+                            @Html.DisplayFor(model => model.Category.Name)
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.LocationNew.LocationName):
+                        <div>
+                            @Html.DisplayFor(model => model.LocationNew.LocationName)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>
+                            <div>
+                                @Html.LabelFor(model => model.Header, new { })
+                                <div>
+                                    @Html.DisplayFor(model => model.Header)
+                                </div>
+                            </div>
+                        </p>
+                        <p>
+                            <div>
+                                @Html.LabelFor(model => model.Description, new { })
+                                <div>
+                                    @Html.DisplayFor(model => model.Description)
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            @Html.LabelFor(model => model.Address)
+                            <div>
+                                @Html.DisplayFor(model => model.Address)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            @Html.LabelFor(model => model.Price)
+                            <div>
+                                @Html.DisplayFor(model => model.Price, new { }) BYR <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        @Ajax.ActionLink("Изменить", "BasicAdInformationEdit", new { AdId = Model.AdId }, ajaxOpts, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

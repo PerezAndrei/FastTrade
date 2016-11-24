@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Редактирование объявления";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+    
+    @*<script src="~/Scripts/myScript.js"></script>*@
+}
+
+<h3 class="text-center">@ViewBag.Title</h3>
+    @Html.AntiForgeryToken()
+
+<div id="basicAdInformation">
+    @Html.Action("BasicAdInformation", new { AdId = ViewBag.AdId})
+</div>
+
+<div id="tagAdInformation">
+   @Html.Action("TagAdInformation", new { AdId=ViewBag.AdId})
+</div>    
+
+<div id="imageAdInformation">
+    @Html.Action("ImageAdInformation", new { AdId = ViewBag.AdId })
+</div>       
+
+     
+
+    
+    
+    
+
+
+
+
+
+    

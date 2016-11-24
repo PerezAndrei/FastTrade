@@ -1,0 +1,46 @@
+﻿@model FastTradeWEB.Models.AdVM
+
+@{
+    Layout = null;
+    ViewBag.Title = "Персональные данные";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tagAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+
+}
+
+@Html.HiddenFor(m=>m.AdId)
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Теги</h3>
+            </div>
+            <div class="panel-body">
+                @if (Model.Tags.Count > 0)
+                {
+                    foreach (var tag in Model.Tags)
+                    {
+                        <button id="tagOnlyRead" class="btn btn-default">@tag.TagName</button>
+                    }
+                }
+                else
+                {
+                    <span>
+                        Теги отсутствуют.
+                    </span>
+                }
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        @Ajax.ActionLink("Изменить", "TagAdInformationEdit", new { AdId = Model.AdId }, ajaxOpts, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

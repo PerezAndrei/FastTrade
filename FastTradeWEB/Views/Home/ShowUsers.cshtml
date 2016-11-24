@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FastTradeWEB.Models.UserVM>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Все пользователи";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUsers</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h3>
+            @ViewBag.Title
+        </h3>
+        <table class="table table-striped table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=>model.UserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BirthDay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleId)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.BirthDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.RoleId)
+                    </td>
+                </tr> 
+            }
+
+        </table> 
+
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>     
+</body>
+</html>

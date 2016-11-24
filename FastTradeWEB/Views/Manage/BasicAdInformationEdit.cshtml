@@ -1,0 +1,118 @@
+﻿@model FastTradeWEB.Models.AdVM
+
+@{
+    ViewBag.Title = "Редактирование объявления";
+    Layout = null;
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "basicAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+    
+    <script src="~/Scripts/myScript.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+@using (Ajax.BeginForm("BasicAdInformationUpdate", "Manage", FormMethod.Post, ajaxOpts, new { @class = "form-horizontal", role = "form", id="BasicAdInformationEdit"}))
+{
+    @Html.HiddenFor(model=>model.AdId)
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Общая информация</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.Kind.Name):
+                        <div>
+                            @Html.DropDownListFor(model => model.KindId, ViewBag.Kinds as SelectList, new { @class = "selectpicker" })
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.Category.Name):
+                        <div>
+                            @Html.DropDownListFor(model => model.CategoryId, ViewBag.Categories as SelectList, new { @class = "selectpicker" })
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.LocationNew.LocationName):
+                        <div>
+                            @Html.DropDownListFor(model => model.LocationId, ViewBag.Locations as SelectList, new { @class = "selectpicker" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>
+                            <div>
+                                @Html.LabelFor(model => model.Header, new { })
+                                <div>
+                                    <h6>
+                                        Min: 30 символов. Max: 80 символов. <span id="count"></span>
+                                    </h6>
+                                    @Html.TextAreaFor(model => model.Header, 3, 100, new {id="text-count" })<br />
+                                    @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </p>
+                        <p>
+                            <div>
+                                @Html.LabelFor(model => model.Description, new { })
+                                <div>
+                                    @Html.TextAreaFor(model => model.Description, 6, 100, new { })<br />
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            @Html.LabelFor(model => model.Address)
+                            <div>
+                                @Html.TextAreaFor(model => model.Address, 1, 100, new { })<br />
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            @Html.LabelFor(model => model.Price)
+                            <div>
+                                @Html.TextBoxFor(model => model.Price, new { }) BYR<br />
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="text-left col-xs-6">
+                        <input type="submit" value="Сохранить" class="btn btn-primary" />
+                    </div>
+                    <div class="text-right col-xs-6">
+                        @Ajax.ActionLink("Отмена", "BasicAdInformation", new { AdId = Model.AdId }, ajaxOpts, new { @class = "btn btn-warning" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<script type="text/javascript">
+        $("textarea[id='text-count']").keyup(function count(){
+            number = $("textarea[id='text-count']").val().length;
+            $("#count").html("Количество введенных символов: "+number);
+        });
+    $.validator.unobtrusive.parse('#BasicAdInformationEdit'); // 'form_id' - id новой формы
+</script>

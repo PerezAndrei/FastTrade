@@ -1,0 +1,29 @@
+﻿@model IEnumerable <FastTradeWEB.Models.CategoryVM>
+
+@*@Ajax.ActionLink("Все категории", "GetAds", "User", new { pageId = 1, kindID = Session["Kind"] }, new AjaxOptions { UpdateTargetId = "content" }, new { @class = "btn btn-info btn-block btn-default " })
+@foreach (var category in Model)
+{
+    @Ajax.ActionLink(category.Name, "GetAds", "User", new { pageId = 1, categoryId = category.CategoryId, kindID = Session["Kind"] }, new AjaxOptions { UpdateTargetId = "content" }, new { @class = "btn btn-info btn-block btn-default " });
+}*@               
+
+@*<div class="btn-group" id="nav_category">
+    <ul class="btn-group-vertical" role="group" >
+        <li class="btn btn-info active" data-category-id="-1">Все категории</li>
+        @foreach (var category in Model)
+        {
+            <li class="btn btn-info" data-category-id="@category.CategoryId">@category.Name</li>
+        }
+        
+    </ul>
+</div>*@
+<div class="btn-group btn-group-vertical" id="nav_category" data-toggle="buttons">
+    <label class="btn btn-info active" id="filter_category" data-category-id="-1">
+        <input type="radio" name="options" autocomplete="off" checked> Все категории
+    </label>
+    @foreach (var category in Model)
+    {
+        <label class="btn btn-info" id="@category.Name" data-category-id="@category.CategoryId">
+            <input type="radio" name="options" autocomplete="off"> @category.Name
+        </label>
+    }
+</div>

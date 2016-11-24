@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FastTrade" Class="DB_Fasttrade_ClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\FastTrade.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FastTradeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ads" Member="Ads">
+    <Type Name="Ad">
+      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KindId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Ad_Image" Member="Images" ThisKey="AdId" OtherKey="AdId" Type="Image" />
+      <Association Name="Ad_InfoReviewAd" Member="InfoReviewAds" ThisKey="AdId" OtherKey="AdId" Type="InfoReviewAd" />
+      <Association Name="Ad_TagAd" Member="TagAds" ThisKey="AdId" OtherKey="Ad_AdId" Type="TagAd" />
+      <Association Name="User_Ad" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Category_Ad" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Kind_Ad" Member="Kind" ThisKey="KindId" OtherKey="KindId" Type="Kind" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Location_Ad" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Phone" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateReg" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_Ad" Member="Ads" ThisKey="UserId" OtherKey="UserId" Type="Ad" />
+      <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Category_Ad" Member="Ads" ThisKey="CategoryId" OtherKey="CategoryId" Type="Ad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="ImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PathToSmall" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PathToOriginal" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AdId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ad_Image" Member="Ad" ThisKey="AdId" OtherKey="AdId" Type="Ad" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InfoReviewAds" Member="InfoReviewAds">
+    <Type Name="InfoReviewAd">
+      <Column Name="InfoReviewAdId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InfoReviewAdDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Ad_InfoReviewAd" Member="Ad" ThisKey="AdId" OtherKey="AdId" Type="Ad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InfoReviewTags" Member="InfoReviewTags">
+    <Type Name="InfoReviewTag">
+      <Column Name="InfoReviewTagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InfoReviewTagDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tag_InfoReviewTag" Member="Tag" ThisKey="TagId" OtherKey="TagId" Type="Tag" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kinds" Member="Kinds">
+    <Type Name="Kind">
+      <Column Name="KindId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Kind_Ad" Member="Ads" ThisKey="KindId" OtherKey="KindId" Type="Ad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Locations" Member="Locations">
+    <Type Name="Location">
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Location_Ad" Member="Ads" ThisKey="LocationId" OtherKey="LocationId" Type="Ad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Role_User" Member="Users" ThisKey="RoleId" OtherKey="RoleId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Synonyms" Member="Synonyms">
+    <Type Name="Synonym">
+      <Column Name="SynonymId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SynonymName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tag_Synonym" Member="Tag" ThisKey="TagId" OtherKey="TagId" Type="Tag" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TagAds" Member="TagAds">
+    <Type Name="TagAd">
+      <Column Name="Tag_TagId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ad_AdId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Ad_TagAd" Member="Ad" ThisKey="Ad_AdId" OtherKey="AdId" Type="Ad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tag_TagAd" Member="Tag" ThisKey="Tag_TagId" OtherKey="TagId" Type="Tag" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tags" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TagName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CountAd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountReq" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tag_InfoReviewTag" Member="InfoReviewTags" ThisKey="TagId" OtherKey="TagId" Type="InfoReviewTag" />
+      <Association Name="Tag_Synonym" Member="Synonyms" ThisKey="TagId" OtherKey="TagId" Type="Synonym" />
+      <Association Name="Tag_TagAd" Member="TagAds" ThisKey="TagId" OtherKey="Tag_TagId" Type="TagAd" />
+    </Type>
+  </Table>
+</Database>

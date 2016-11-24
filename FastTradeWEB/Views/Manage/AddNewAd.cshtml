@@ -1,0 +1,199 @@
+﻿@model FastTradeWEB.Models.AdVM
+
+@using FastTradeWEB.Models
+
+@{
+    ViewBag.Title = "Новое объявление";
+    Layout = null;
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "manageContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    AjaxOptions ajaxOptsCancel = new AjaxOptions
+    {
+        UpdateTargetId = "allContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+}
+
+@using (Ajax.BeginForm("AddNewAd", "Manage", FormMethod.Post, ajaxOpts, new { @class = "form-horizontal", role = "form", id="AddNewAd"}))
+{
+    Html.HiddenFor(m=>m.Images);
+    <div class="row">
+        <div class="col-xs-12">
+            @*<h3 class="text-center">@ViewBag.Title</h3>*@
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@ViewBag.Title (общая информация)</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            @Html.LabelFor(model => model.Kind.Name):
+                            <div>
+                                @Html.DropDownListFor(model => model.KindId, ViewBag.Kinds as SelectList, new { @class = "selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            @Html.LabelFor(model => model.Category.Name):
+                            <div>
+                                @Html.DropDownListFor(model => model.CategoryId, ViewBag.Categories as SelectList, new { @class = "selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            @Html.LabelFor(model => model.LocationNew.LocationName):
+                            <div>
+                                @Html.DropDownListFor(model => model.LocationId, ViewBag.Locations as SelectList, new { @class = "selectpicker" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>
+                                <div>
+                                    @Html.LabelFor(model => model.Header, new { })
+                                    <div>
+                                        <h6>
+                                            Min: 30 символов. Max: 80 символов. <span id="count"></span>
+                                        </h6>
+                                        @Html.TextAreaFor(model => model.Header, 3, 100, new { @class = "form-control",id="text-count" })<br />
+                                        @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </p>
+                            <p>
+                                <div>
+                                    @Html.LabelFor(model => model.Description, new { })
+                                    <div>
+                                        @Html.TextAreaFor(model => model.Description, 6, 100, new { @class = "form-control" })<br />
+                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div>
+                                @Html.LabelFor(model => model.Address)
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            @Html.TextAreaFor(model => model.Address, 1, 100, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })<br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div>
+                                @Html.LabelFor(model => model.Price)
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-xs-2">
+                                            BYR
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })<br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Теги</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="TagList">
+
+                        <div class="TagItem row" id="item" data="0">
+                            <div class="col-xs-4 ">
+                                <p class="InputItem">
+                                    @Html.TextBox("Tags[0].TagName", "", new { @class = "form-control input-validation-error", data = "0", data_val = "true", placeholder = "Имя тэга", data_autocomplete_source=@Url.Action("AutocompleteSearch", "Manage"), data_val_required = "Введите тэг" })
+                                    @Html.ValidationMessage("Tags[0].TagName", "", new { @class = "text-danger" })
+                                </p>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-danger btn-sm" id="delTag" data="0">
+                                    Удалить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success btn-sm" id="addTag">
+                            Добавить тег
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Изображения</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ImageList">
+                        <div class="ImageItem row" id="item">
+                            <div class="col-xs-8 ">
+                                <p class="InputItem">
+                                    <h6>Выберите один или несколько файлов с изображением</h6>
+                                    <input type="file" name="upload" id="uploadFile" multiple  /><span class="text-success" id="statusUploading"></span><br /><br />
+                                    <button class="btn btn-success btn-sm" id="uploadImage" >Загрузить</button><span>  Максимальный размер 30МБ</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="text-left col-xs-6">
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
+        </div>
+        <div class="text-right col-xs-6">
+            @Ajax.ActionLink("Отмена", "MyAccount","Manage", new { }, ajaxOptsCancel, new { @class = "btn btn-warning" })
+        </div>
+    </div>
+}
+<script src="~/Scripts/myScript.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.0.js"></script>
+<script type="text/javascript" ax:repeat="0" src="~/Scripts/saveImage.js"></script>
+<script>
+    $("textarea[id='text-count']").keyup(function count() {
+        number = $("textarea[id='text-count']").val().length;
+        $("#count").html("Количество введенных символов: " + number);
+    });
+    $.validator.unobtrusive.parse('#AddNewAd'); // 'form_id' - id новой формы
+</script>

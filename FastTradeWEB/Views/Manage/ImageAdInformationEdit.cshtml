@@ -1,0 +1,71 @@
+﻿@model IEnumerable<FastTradeWEB.Models.ImageVM>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Редактирование объявления";
+    AjaxOptions ajaxOptsImageDelete = new AjaxOptions
+    {
+        UpdateTargetId = "imagesDelete",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    AjaxOptions ajaxOptsCloseEdit = new AjaxOptions
+    {
+        UpdateTargetId = "imageAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Изображения</h3>
+            </div>
+            <div class="panel-body">
+                <div id="imagesDelete">
+                    @if (Model.Count() > 0)
+                    {
+                        foreach (var image in Model)
+                        {
+                            <div class=" thumbnail col-xs-2">
+                                <img class="clickImage img-responsive" src=@image.PathToOriginal alt="" />
+                                <div class="caption">
+                                    @Ajax.ActionLink("Удалить", "ImageDelete", new { AdId = image.AdId, ImageId = image.ImageId, ImageName = image.Name }, ajaxOptsImageDelete, new { @class = "btn btn-block btn-danger btn-sm"})
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>Изображения отсутствуют</p>
+                    }
+                </div>
+                <br />
+                <div  id="imagesAdd">
+                    <div class="ImageList">
+                        <div class="row ImageItem" id="item">
+                            <div class="col-xs-8 ">
+                                <p class="InputItem">
+                                    <h4>Выберите один или несколько файлов с изображением:</h4>
+                                    <input type="file" name="upload" id="uploadFileForEdit" multiple /><span class="text-success" id="statusUploading"></span><br />
+                                    <button class="btn btn-success btn-sm" id="uploadImageForEdit" data-id-ad="@ViewBag.AdId">Загрузить</button><span>  Максимальный размер 30МБ</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        @Ajax.ActionLink("Закрыть редактирование", "ImageAdInformation", new { AdId = ViewBag.AdId }, ajaxOptsCloseEdit, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" ax:repeat="0" src="~/Scripts/popup_img.js"></script>
+<script src="~/Scripts/saveImage.js"></script>

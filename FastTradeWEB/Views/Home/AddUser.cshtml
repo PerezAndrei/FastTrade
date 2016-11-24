@@ -1,0 +1,80 @@
+﻿@model FastTradeWEB.Models.UserVM
+
+@{
+    Layout = null;
+    ViewBag.Title = "AddUser";
+}
+
+    <!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>AddUser</title>
+        @Styles.Render("~/Content/Mycss")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="container">
+            <h2>Добавление нового пользователя</h2>
+            
+                @{Html.BeginForm("AddUser", "Home", FormMethod.Post);}
+           
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FirstName, "Имя")
+            </div>
+            <br />
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <br />
+            <br />
+            @Html.LabelFor(model => model.LastName, "Фамилия")
+
+            <br />
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+            <br />
+            <br />
+            @Html.LabelFor(model => model.Email, "Электронная почта")
+            <br />
+
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+
+            <br />
+            <br />
+            @Html.LabelFor(model => model.BirthDay, "Дата рождения")
+            <br />
+            @Html.EditorFor(model => model.BirthDay)
+            @Html.ValidationMessageFor(model => model.BirthDay)
+            <br />
+            <br />
+            @Html.LabelFor(model => model.Phone, "Телефон")
+            <br />
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+            <br />
+            <br />
+            @Html.LabelFor(model => model.Password, "Пароль")
+            <br />
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+            <br /><br />
+            @Html.LabelFor(model => model.ConfirmPassword, "Повторите пароль")
+            <br />
+            @Html.EditorFor(model => model.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            <br /><br />
+            <p>
+            <div class="btn-default">
+                <input type="submit" value="Добавить" />
+            </div>
+                @{Html.EndForm();}
+        </div>
+
+       
+        @Scripts.Render("~/Scripts/AllScripts")
+</body>
+</html>

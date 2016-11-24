@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FastTradeWEB.Models.ImageVM>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Редактирование объявления";
+    AjaxOptions ajaxOptsImageDelete = new AjaxOptions
+    {
+        UpdateTargetId = "imagesDelete",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+
+}
+
+@if (Model.Count() > 0)
+{
+    foreach (var image in Model)
+    {
+        <div class=" thumbnail col-xs-2">
+            <img class="clickImage img-responsive" src=@image.PathToOriginal alt="" />
+            <div class="caption">
+                @Ajax.ActionLink("Удалить", "ImageDelete", new { AdId = image.AdId, ImageId = image.ImageId, ImageName = image.Name }, ajaxOptsImageDelete, new { @class = "btn btn-block btn-danger btn-sm" })
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>Изображения отсутствуют</p>
+}
+<script type="text/javascript" ax:repeat="0" src="~/Scripts/popup_img.js"></script>

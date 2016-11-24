@@ -1,0 +1,364 @@
+﻿body {
+    background-image: url('../Image/bg.png');
+}
+.header {
+    background-color: #5BC0DE;
+}
+.footer {
+    background-color: #5BC0DE;
+    border-color: #000000;
+    border-width: 5px;
+}
+/*Настройка jqGrid*/
+.ui-jqgrid,
+.ui-jqgrid .ui-jqgrid-view,
+.ui-jqgrid .ui-jqgrid-pager,
+.ui-jqgrid .ui-pg-input {
+    font-size: 12px;
+}
+.ui-jqgrid tr.jqgroup td {
+    font-weight: normal;
+    font-size: 12px;
+
+}
+
+/*ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix*/
+.ui-jqgrid .ui-jqgrid-title {
+    text-align:center;
+}
+
+.ui-jqgrid .ui-jqgrid-titlebar {
+    font-size: 16px;
+}
+
+/*Переопределение цветов bootstrap*/
+.bg-info {
+    background-color:#5BC0DE;
+}
+.panel-info > .panel-heading {
+    color: #FFFFFF;
+    background-color: #5BC0DE;
+    border-color: #5BC0DE;
+}
+aside {
+    /*background-color:#CCCEDB;*/
+}
+
+section {
+    /*background-color:#E8E8EC;*/
+}
+
+/*#item{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}*/
+
+#nav_kind {
+    /*position:fixed;*/
+}
+
+.header {
+    margin-top: 50px;
+}
+
+ #loadImg{
+     position: absolute; 
+     z-index: 1000; 
+     display: none;
+ }
+
+#edit {
+    height: 300px;
+    width: 100px;
+}
+
+#boxTags, #tagForStatistics{
+    height: 200px;
+}
+
+#boxTags button, #tagForStatistics button{
+    margin: 1px 0px 1px 0px;
+}
+
+#chart_div {
+    margin-bottom: 20px;
+}
+
+#tagOnlyRead {
+    cursor: default;
+}
+
+.text-primary {
+    line-height: 15px;
+}
+
+/*выравнивание изображений*/
+
+.clickImage{
+    width: 100%;
+    height: 162px;
+}
+
+#imageBox {
+    text-align:center;
+}
+
+/*Обрезка текста*/
+
+
+#header {
+    height: 65px;
+    width: auto;
+    line-height: 25px;
+}
+
+#headerPers {
+    height: 70px;
+    width: auto;
+    line-height: 25px;
+}
+
+#kindAd, #dateAd {
+    font-size: 10pt;
+    margin-bottom:0;
+}
+
+#priceAd {
+    font-size:14pt;
+}
+
+#categoryAd {
+    font-size: 20pt;
+}
+/*#header:before {
+    content: "";
+    float: left;
+    width: 5px;
+    height: 200px;
+}*/
+
+/*#header > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}*/		
+
+/*#header:after {
+    content: "\02026";
+    box-sizing: content-box;
+    float: right;
+    position: relative;
+    top: -25px;
+    left: 100%; 
+    width: 3em;
+    margin-left: -3em;
+    padding-right: 5px;	
+    text-align: right;
+    background-size: 100% 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}*/
+
+/*Цвета для badge*/
+.badge {
+  padding: 2px 9px 2px;
+  font-size: 12.025px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: #999999;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.btn-info .badge-default {
+  background-color: #F5F5F5;
+  /*color:black;*/
+}
+
+.btn-info .badge-error{
+  background-color: #FFFFFF;
+  /*color:black;*/
+}
+
+.badge-warning {
+       background-color: #f89406;
+}
+
+.badge-success {
+  background-color: #468847;
+}
+
+.badge-info {
+  background-color: #3a87ad;
+}
+
+.badge-inverse {
+  background-color: #333333;
+}
+
+/*клик по фото*/
+/*body {
+	margin:0;
+}*/
+
+.clickImage {
+	/*margin:30px; 
+	float:left;*/
+	cursor:pointer;
+	/*max-height:100px;*/
+}
+
+.popup {
+	position: fixed;
+	height:100%;
+	width:100%;
+	top:42px;
+    bottom: 20px;
+	left:0;
+	display:none;
+	text-align:center;
+    z-index:100;
+}
+
+.popup_bg {
+	background:rgba(0,0,0,0.4);
+	position:absolute;
+	z-index:100;
+	height:100%;
+	width:100%;
+}
+
+
+.popup_img {
+	position: relative;
+	margin:0 auto;
+	z-index:2;
+	max-height:94%;
+	max-width:94%;
+	margin:2% 0 0 0;
+}
+
+/*Настройки кнопки открытия спойлера*/
+.a.spoiler.collapsed:before {
+    content:"[+]";
+}
+
+.a.spoiler:before {
+    content:"[-]";
+}
+
+ /*Настройка Salvatore*/
+ @media screen and (max-width: 767px){
+	.masonry[data-columns]::before {
+		content: '1 .col-xs-7';
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	.masonry[data-columns]::before {
+		content: '2 .col-xs-6';
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	.masonry[data-columns]::before {
+		content: '3 .col-xs-4';
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px){
+	.masonry[data-columns]::before {
+		content: '4 .col-xs-3';
+	}
+}
+/* Again, you’re free to use and define the classes: */
+/*.column { float: left; }
+.size-1of1 { width: 100%; }
+.size-1of2 { width: 50%; }
+.size-1of3 { width: 33.333%; }*/
+
+/*настройки navbar*/
+
+/* цвет фона и рамки навигационного меню */
+.navbar-default {
+    background-color: #5BC0DE;
+    border-color: #000000;
+    border-width:thin;
+}
+/* цвет текста, содержащий название сайта или бренда */
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+/* цвет текста (название сайта или бренда), при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #d1ffed;
+}
+/* Цвет пунктов навигационного меню */
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #428BCA;
+}
+/* Цвет и фон активного пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #d1ffed;
+    background-color: #27ae60;
+}
+/* Цвет и фон открытого пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #d1ffed;
+    background-color: #27ae60;
+}
+/* Цвет стрелочки (треугольничка) у раскрывающихся пунктов меню */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #ecf0f1;
+    border-bottom-color: #ecf0f1;
+}
+/* Цвет стрелочки (треугольничка) при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #d1ffed;
+    border-bottom-color: #d1ffed;
+}
+/* Цвет стрелочки (треугольничка), открывшегося пункта меню */
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #d1ffed;
+    border-bottom-color: #d1ffed;
+}
+/* CSS стили для мобильных устройств */
+/* Цвет рамки у кнопки, которая открывает меню */
+.navbar-default .navbar-toggle {
+    border-color: #428BCA;
+}
+/* Цвет фона кнопки (которая открывает меню) при поднесении к ней курсора мышки или при нахождении её в фокусе */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #428BCA;
+}
+/* Цвет полосочек в кнопочке, которая открывает меню */
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+/* Цвет пунктов меню в раскрывающихся списках */
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+  }
+/* Цвет и фон пункта меню в раскрывающихся списках, при поднесении к нему курсора мышки или при нахождении его в фокусе */
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #d1ffed;
+        background-color: #27ae60;
+    }
+}

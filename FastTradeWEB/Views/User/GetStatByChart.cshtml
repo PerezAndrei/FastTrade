@@ -1,0 +1,58 @@
+﻿@model List<FastTradeWEB.Models.StatisticsForChart>
+@using FastTradeWEB.Models
+
+<script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawBasic);
+
+    function drawBasic() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Дата');
+        data.addColumn('number', 'Запросы');
+
+        var count=@Model.Count;
+        var k=0;
+        var months = new Array(count);
+        var numbers= new Array(count);
+        var years=new Array(count);
+        @{
+
+            StatisticsForChart[] statArray = new StatisticsForChart[Model.Count];
+            statArray = Model.ToArray();
+        }
+
+        @foreach(var stat in Model)
+        {
+            <text>
+        months[k]='@stat.MonthName';
+            numbers[k]=@stat.Count;
+            years[k]=@stat.Year;
+            k++;
+            </text>
+        }
+
+        for(var i=0;i<count;i++)
+        {
+            //var date=months[i].concat(years[i].toString());
+            data.addRow(
+            [months[i], numbers[i]]);
+        }
+
+        var options = {
+            title: 'Количество запросов за месяц',
+            hAxis: {
+                title: 'Месяц года',
+            },
+            vAxis: {
+                title: 'Количество запросов'
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+    }
+</script>
+<div id="chart_div"></div>

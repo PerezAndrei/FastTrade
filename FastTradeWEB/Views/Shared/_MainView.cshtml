@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet/less" type="text/css" href="~/Content/bootstrap-select/variables.less">
+    <link rel="stylesheet/less" type="text/css" href="~/Content/bootstrap-select/bootstrap-select.less">
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.theme.css" rel="stylesheet" />
+    <link href="~/Content/swipebox.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/jqGrid/jquery-ui-1.12.1.custom/jquery-ui.theme.css"  />
+    @*<link rel ="stylesheet" type="text/css" media="screen" href="~/Content/jqGrid/ui.jqgrid-bootstrap-ui.css"  />*@
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/jqGrid/ui.jqgrid-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/jqGrid/ui.jqgrid.css"  />
+    @Styles.Render("~/Content/Mycss")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <title>@ViewBag.Title</title>
+
+</head>
+
+<body>
+    
+    <div class="header container-field">
+        <div class="navbar navbar-default navbar-fixed-top" >
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная", "Index", "User")</li>
+                        <li>@Html.ActionLink("Статистика", "Statistics", "User")</li>
+                        <li>
+                            <noscript>
+                                <h1 class="text-center text-danger">Для корректной работы требуется JavaScript</h1>
+                            </noscript>
+                        </li>
+                    </ul>
+                    @Html.Partial("_Login")
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div id="allContent">
+            @RenderBody()
+        </div>
+    </div>
+    <br />
+    <div class="footer container-field">
+        <br />
+        <br />
+        <br />
+    </div>
+    <img id="loadImg" src="~/Image/preloader2.gif" />
+        @Scripts.Render("~/Scripts/AllScripts")
+        
+</body>
+</html>
+
+

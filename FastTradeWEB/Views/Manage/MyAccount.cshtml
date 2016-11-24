@@ -1,0 +1,29 @@
+﻿
+
+@*частичное представление*@
+@using Microsoft.Owin.Security;
+@using System.Security.Claims;
+@using System.Security.Principal;
+
+@{
+    Layout = null;
+    ViewBag.Title = "Личный кабинет";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "allContent"
+    };
+}
+
+<div class="row container-fluid">
+    <h3 class="text-left">
+        <span class="bg-info">@ViewBag.Title @*@User.Identity.Name.ToString()*@</span>
+    </h3>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" id="manageMenu">
+        @Html.Partial("MenuAccount")
+    </div>
+    <div class=" col-lg-9 col-md-8 col-sm-8 col-xs-8" id="manageContent">
+    </div>
+</div>
+

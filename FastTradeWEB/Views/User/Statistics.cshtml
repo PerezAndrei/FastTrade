@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FastTradeWEB.Models.TagVM>
+
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_MainView.cshtml";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "basicAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="~/Scripts/JqGrid_Chart.js"></script>
+<h3 class="text-center">Статистика</h3>
+<div class="row">
+    <div class="col-xs-12">
+        <div>
+            <div class="well pre-scrollable text-center" id="tagForStatistics">
+                @foreach (var tag in Model)
+                {
+                    <button class="btn btn-info btn-sm" id="@tag.TagName" data-tag-id="@tag.TagId" data-tag-name="(@tag.TagName)">
+                        <span class="badge badge-default">@tag.CountAd</span> @tag.TagName <span class="badge badge-error">@tag.CountReq</span>
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div id="statisticsForTag">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

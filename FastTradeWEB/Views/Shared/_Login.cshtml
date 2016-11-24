@@ -1,0 +1,42 @@
+﻿@using Microsoft.Owin.Security;
+@using System.Security.Claims;
+@using System.Security.Principal;
+
+@{
+    <script src="~/Scripts/LoadingAnimation.js"></script>
+    
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "allContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Ajax.ActionLink(User.Identity.Name.ToString(), "MyAccount", "Manage",ajaxOpts)
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Ajax.ActionLink("Вход", "Login", "Account", ajaxOpts)</li>
+        <li>@Ajax.ActionLink("Регистрация", "Register", "Account",ajaxOpts)</li>
+    </ul>
+}
+
+
+
+
+
+
+

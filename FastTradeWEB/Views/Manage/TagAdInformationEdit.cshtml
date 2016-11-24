@@ -1,0 +1,75 @@
+﻿@model FastTradeWEB.Models.AdVM
+@using FastTradeWEB.Models
+
+@{
+    ViewBag.Title = "Редактирование объявления";
+    Layout = null;
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tagAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+    
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+}
+
+@using (Ajax.BeginForm("TagAdInformationUpdate", "Manage",FormMethod.Post, ajaxOpts, new { @class = "form-horizontal", role = "form", id="tagEdit" }))
+{
+    @Html.HiddenFor(m=>m.AdId)
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Теги</h3>
+                </div>
+                <div class="panel-body">
+                    @{
+                        int count =Model.Tags.Count();
+                        TagVM[] tags = Model.Tags.ToArray();
+                                    <div class="TagList">
+                                        @for (int i = 0; i < count; i++)
+                                        {
+                                            <div class="TagItem row" id="item" data="@i">
+                                                <div class="col-xs-4 ">
+                                                    <p class="InputItem">
+                                                        @Html.TextBox("Tags[" + (i) + "].TagName", tags[i].TagName.ToString(), new { @class = "form-control", data = i, data_autocomplete_source=@Url.Action("AutocompleteSearch", "Manage") })
+
+                                                        @Html.ValidationMessage(tags[i].TagName, "", new { @class = "text-danger" })
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <button class="btn btn-danger btn-sm" id="delTag" data="@i">
+                                                        Удалить
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                    }
+                   
+                    <div class="col">
+                        <a class="btn btn-success btn-sm" id="addTag">
+                            Добавить тег
+                        </a>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="text-left col-xs-6">
+                            <input type="submit" value="Сохранить" class="btn btn-primary" />
+                        </div>
+                        <div class="text-right col-xs-6">
+                            @Ajax.ActionLink("Отмена", "TagAdInformation", new { AdId = Model.AdId }, ajaxOpts, new { @class = "btn btn-warning" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/myScript.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.0.js"></script>
+<script>
+    $.validator.unobtrusive.parse('#tagEdit'); // 'form_id' - id новой формы
+</script>

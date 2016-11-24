@@ -1,0 +1,46 @@
+﻿@model FastTradeWEB.Models.TagVM
+
+@{
+    Layout = null;
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Активность тэга @Model.TagName</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>
+                    Количество объявлений: @Model.CountAd
+                </h4>
+                <h4>
+                    Количество запросов: @Model.CountReq
+                </h4>
+                <label id="tagId" data-tagid="@Model.TagId"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.Action("GetStatByChart", "User", new { TagId = Model.TagId })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                @if (Model.CountReq != 0)
+                {
+                    <table id="jqg"></table>
+                }
+            </div>
+        </div> 
+    </div>
+</div>
+   
+    
+
+<script type="text/javascript">
+</script> 
+<script src="~/Scripts/jqGrid/i18n/grid.locale-ru.js"></script>
+<script src="~/Scripts/jqGrid/jquery.jqGrid.min.js"></script>
+<script src="~/Scripts/JqGrid_Chart.js"></script>

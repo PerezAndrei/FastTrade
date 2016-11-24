@@ -1,0 +1,28 @@
+13.06.2016 21.35 Остановился на создании класса IdentityExtensions
+
+
+
+@*<ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li  class="active">@Ajax.ActionLink("Все типы", "GetAds", "User", new AjaxOptions { UpdateTargetId = "content" }, new {data_toggle="tab"})</li>
+    <li >@Ajax.ActionLink("Продам", "GetAds", "User", new { pageId = 1, categoryId = 2 }, new AjaxOptions { UpdateTargetId = "content" }, new { data_toggle = "tab" })</li>
+    <li >@Ajax.ActionLink("Куплю", "GetAds", "User", new AjaxOptions { UpdateTargetId = "content" }, new { data_toggle = "tab" })</li>
+    <li >@Ajax.ActionLink("Услуга", "GetAds", "User", new AjaxOptions { UpdateTargetId = "content" }, new { data_toggle = "tab" })</li>
+    <li >@Ajax.ActionLink("Обмен", "GetAds", "User", new AjaxOptions { UpdateTargetId = "content" }, new { data_toggle = "tab" })</li>
+</ul>*@
+
+@*<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#allKind" aria-controls="allKind" role="tab" data-toggle="tab">Все типы</a></li>
+        <li><a href="#prodam" aria-controls="prodam" role="tab" data-toggle="tab">Продам</a></li>
+        <li><a href="#kuplu" aria-controls="kuplu" role="tab" data-toggle="tab">Куплю</a></li>
+        <li><a href="#usluga" aria-controls="usluga" role="tab" data-toggle="tab">Услуга</a></li>
+        <li><a href="#obmen" aria-controls="obmen" role="tab" data-toggle="tab">Обмен</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="allKind"><div id="content">@Html.Action("GetAds")</div></div>
+        <div role="tabpanel" class="tab-pane" id="prodam"><div id="content">@Html.Action("GetAds", new { pageId = 1,categoryId = ViewBag.Category, kindId = 1 })</div></div>
+        <div role="tabpanel" class="tab-pane" id="kuplu"><div id="content">@Html.Action("GetAds", new { pageId = 1,categoryId = ViewBag.Category, kindId = 2 })</div></div>
+        <div role="tabpanel" class="tab-pane" id="usluga"><div id="content">@Html.Action("GetAds", new { pageId = 1,categoryId = ViewBag.Category, kindId = 3 })</div></div>
+        <div role="tabpanel" class="tab-pane" id="obmen"><div id="content">@Html.Action("GetAds", new { pageId = 1,categoryId = ViewBag.Category, kindId = 4 })</div></div>
+    </div>
+</div>*@

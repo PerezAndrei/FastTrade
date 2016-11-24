@@ -1,0 +1,36 @@
+﻿@using Microsoft.Owin.Security;
+@using System.Security.Claims;
+@using System.Security.Principal;
+
+@{
+    Layout = null;
+    ViewBag.Title = "Личный кабинет";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "manageContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+@Ajax.ActionLink("Персональные данные", "PersonalData", "Manage", ajaxOpts, new { @class = "btn btn-info btn-block " })
+@Ajax.ActionLink("Мои объявления", "PersonalAds", "Manage", ajaxOpts, new { @class = "btn btn-info btn-block " })
+@Ajax.ActionLink("Новое объявление", "AddNewAd", "Manage", ajaxOpts, new { @class = "btn btn-info btn-block " })
+@Ajax.ActionLink("Изменить пароль", "EditPassword", "Manage", ajaxOpts, new { @class = "btn btn-info btn-block " })
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+    

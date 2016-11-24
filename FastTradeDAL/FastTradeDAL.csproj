@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{544763B3-26BE-4DBE-85E5-79454966C848}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FastTradeDAL</RootNamespace>
+    <AssemblyName>FastTradeDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EF\FastTradeContext.cs" />
+    <Compile Include="Entities\Ad.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\InfoReviewAd.cs" />
+    <Compile Include="Entities\InfoReviewTag.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Synonym.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\Kind.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201605211745141_InitialCreate.cs" />
+    <Compile Include="Migrations\201605211745141_InitialCreate.Designer.cs">
+      <DependentUpon>201605211745141_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605221015198_WithDateForAdsUsers.cs" />
+    <Compile Include="Migrations\201605221015198_WithDateForAdsUsers.Designer.cs">
+      <DependentUpon>201605221015198_WithDateForAdsUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607191948119_AddTableLocation.cs" />
+    <Compile Include="Migrations\201607191948119_AddTableLocation.Designer.cs">
+      <DependentUpon>201607191948119_AddTableLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607252223397_DeleteLocationString.cs" />
+    <Compile Include="Migrations\201607252223397_DeleteLocationString.Designer.cs">
+      <DependentUpon>201607252223397_DeleteLocationString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607252250410_LocationID_Delete.cs" />
+    <Compile Include="Migrations\201607252250410_LocationID_Delete.Designer.cs">
+      <DependentUpon>201607252250410_LocationID_Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607252254211_LocationID_Add.cs" />
+    <Compile Include="Migrations\201607252254211_LocationID_Add.Designer.cs">
+      <DependentUpon>201607252254211_LocationID_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608012248398_AddAddress.cs" />
+    <Compile Include="Migrations\201608012248398_AddAddress.Designer.cs">
+      <DependentUpon>201608012248398_AddAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608021933334_Add_CountAdReq_Del_StrSynonyms.cs" />
+    <Compile Include="Migrations\201608021933334_Add_CountAdReq_Del_StrSynonyms.Designer.cs">
+      <DependentUpon>201608021933334_Add_CountAdReq_Del_StrSynonyms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608031901325_AddTableMigration.cs" />
+    <Compile Include="Migrations\201608031901325_AddTableMigration.Designer.cs">
+      <DependentUpon>201608031901325_AddTableMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608032047177_AddTablesInfo_Tags_Ads.cs" />
+    <Compile Include="Migrations\201608032047177_AddTablesInfo_Tags_Ads.Designer.cs">
+      <DependentUpon>201608032047177_AddTablesInfo_Tags_Ads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AdRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\EFUnitOfWork.cs" />
+    <Compile Include="Repositories\ImageRepository.cs" />
+    <Compile Include="Repositories\KindRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605211745141_InitialCreate.resx">
+      <DependentUpon>201605211745141_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605221015198_WithDateForAdsUsers.resx">
+      <DependentUpon>201605221015198_WithDateForAdsUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607191948119_AddTableLocation.resx">
+      <DependentUpon>201607191948119_AddTableLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607252223397_DeleteLocationString.resx">
+      <DependentUpon>201607252223397_DeleteLocationString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607252250410_LocationID_Delete.resx">
+      <DependentUpon>201607252250410_LocationID_Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607252254211_LocationID_Add.resx">
+      <DependentUpon>201607252254211_LocationID_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608012248398_AddAddress.resx">
+      <DependentUpon>201608012248398_AddAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608021933334_Add_CountAdReq_Del_StrSynonyms.resx">
+      <DependentUpon>201608021933334_Add_CountAdReq_Del_StrSynonyms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608031901325_AddTableMigration.resx">
+      <DependentUpon>201608031901325_AddTableMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608032047177_AddTablesInfo_Tags_Ads.resx">
+      <DependentUpon>201608032047177_AddTablesInfo_Tags_Ads.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

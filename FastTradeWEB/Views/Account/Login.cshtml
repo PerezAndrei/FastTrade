@@ -1,0 +1,67 @@
+﻿@model FastTradeWEB.Models.LoginModel
+
+@{
+    ViewBag.Title = "Вход в систему";
+    Layout = null;
+    <script src="~/Scripts/myScript.js"></script>
+    AjaxOptions ajaxOptsLogin = new AjaxOptions
+    {
+        UpdateTargetId = "allContent",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+<br />
+<br />
+<br />                
+<div class="row">
+    <div class="col-xs-offset-4 col-xs-12 ">
+        <h3>@ViewBag.Title</h3>
+        <div id="loginForm">
+            @using (Ajax.BeginForm("Login", "Account", FormMethod.Post, ajaxOptsLogin, new { @class = "form-horizontal", role = "form", id = "loginFormJS" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "col-md-1 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email,"", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, new { @class = "col-md-1 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-0 col-xs-3">
+                        <input type="submit" value="Войти" class="btn btn-block btn-primary" />
+                    </div>
+                </div>
+                
+            }
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script>
+    $.validator.unobtrusive.parse('#loginFormJS'); // 'form_id' - id новой формы
+</script> 

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FastTradeWEB.Models.TagVM>
+
+@{
+    Layout = null;
+    //ViewBag.Title = "Персональные данные";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "basicAdInformation",
+        OnBegin = "startLoadingAnimation()",
+        OnComplete = "stopLoadingAnimation()"
+    };
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="#spoilerTags" data-toggle="collapse" class="btn btn-block btn-info btn-sm spoiler collapsed">
+                    <span>Поиск по тегам <span id="searchByTag">(Все тэги)</span></span> <span class="caret"></span>
+                </a>
+            </div>
+            @*<div class="col-xs-1">
+                @Ajax.ActionLink("Обновить", "", new { }, ajaxOpts, new { @class = "btn btn-sm btn-block btn-default" })
+            </div>*@
+        </div>
+        <div class="collapse" id="spoilerTags">
+            <div class="well pre-scrollable text-center" id="boxTags">
+                <a id="refreshTags" @*type="button"*@ class="btn btn-sm btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                </a>
+                <button class="btn btn-info btn-sm active" id="filter_tag" data-tag-id="-1" data-tag-name="(Все тэги)">
+                    Все тэги
+                </button>
+                @foreach (var tag in Model)
+                {
+                    <button class="btn btn-info btn-sm" id="@tag.TagName" data-tag-id="@tag.TagId" data-tag-name="(@tag.TagName)">
+                        <span class="badge badge-default">@tag.CountAd</span> @tag.TagName <span class="badge badge-error">@tag.CountReq</span>
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
